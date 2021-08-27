@@ -21,10 +21,10 @@ export const initDataCollectionModule = (gps, accelerometer) =>{
                   // Handle runtime errors.
                 if (event.error.name === 'NotAllowedError') {
                     console.log('Permission to access sensor was denied.');
-                    reject();  
+                    reject('Permission to access sensor was denied.');  
                 } else if (event.error.name === 'NotReadableError') {
                     console.log('Cannot connect to the sensor.');
-                    reject();
+                    reject('Cannot connect to the sensor.');
                 }
                 };
                 accelerometer.onreading = (e) => {
@@ -39,12 +39,12 @@ export const initDataCollectionModule = (gps, accelerometer) =>{
                 // Handle construction errors.
                 if (error.name === 'SecurityError') {
                   console.log('Sensor construction was blocked by the Permissions Policy.');
-                    reject();
+                    reject('Sensor construction was blocked by the Permissions Policy.');
                 } else if (error.name === 'ReferenceError') {
-                    reject();
+                    reject("Sensor is not supported by the User Agent.");
                     console.log('Sensor is not supported by the User Agent.');
                 } else {
-                    reject();
+                    reject(error);
                   throw error;
                 }
               }
