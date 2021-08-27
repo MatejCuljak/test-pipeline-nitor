@@ -1,7 +1,7 @@
 import { initDataCollectionModule, dataCollectionModule } from "./data-collection-module.js";
 const UIERR = document.getElementById("error");
 
-initDataCollectionModule(false, {frequency : 1})
+initDataCollectionModule(false, {frequency : 60})
 .catch((error)=>{
     UIERR.innerText = JSON.stringify(error);
 });
