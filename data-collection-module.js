@@ -69,7 +69,7 @@ export const dataCollectionModule = ({gps, accelerometer}) =>{
             
         };
         let acceleration_data;
-        
+
         if(accelerometer == true){
             //collect accelometer data
             const recordedAccX = accelerometerX;
@@ -78,7 +78,7 @@ export const dataCollectionModule = ({gps, accelerometer}) =>{
             //Filter Noise
     
             //Return as clean data
-            let acceleration_data = {
+            acceleration_data = {
                 acceleration_x :  recordedAccX,
                 acceleration_y : recordedAccY,
                 acceleration_z : recordedAccZ
